@@ -1,0 +1,8 @@
+build.xml
+	syntax:
+		#TODO: resource-wide cache options
+		<build>
+			<script src="<path>" [luac="[c][d][o]"] [prep="0|1"] [prepa="<luaexplist>"] [prepcache="0|1"] [luaccahe="0|1"]/>
+			...
+		</build>
+		
