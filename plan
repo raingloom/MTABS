@@ -5,4 +5,11 @@ build.xml
 			<script src="<path>" [luac="[c][d][o]"] [prep="0|1"] [prepa="<luaexplist>"] [prepcache="0|1"] [luaccahe="0|1"]/>
 			...
 		</build>
-		
+
+caching:
+	checksums: source, prep + prepa, luac alphabetically ordered
+	checksum algorithm: md5 would be faster and we don't need cryptographic security
+	hierarchy:
+		<source>
+			<prep + prepa>
+				<luac>
