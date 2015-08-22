@@ -13,3 +13,6 @@ caching:
 		<source>
 			<prep + prepa>
 				<luac>
+necessary ACL:
+	need to stop and start resources (background daemon functionality)
+	need to create/modify files and file names
