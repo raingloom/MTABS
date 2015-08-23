@@ -1,0 +1,5 @@
+<meta>
+	<info name="MTA Build System" description="Handles auto-compilation and pre-processing" author="Rain Gloom" type="script"/>
+	<oop>on</oop>
+	<script src="prep.lua" type="server"/>
+</meta>
