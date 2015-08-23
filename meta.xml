@@ -1,5 +1,15 @@
 <meta>
-	<info name="MTA Build System" description="Handles auto-compilation and pre-processing" author="Rain Gloom" type="script"/>
-	<oop>on</oop>
-	<script src="prep.lua" type="server"/>
+	<info name="MTA Build System" description="Handles auto-compilation and pre-processing" author="Rain Gloom" type="script" />
+	<oop>true</oop>
+	
+	<!--support for handling files and strings-->
+	<script src="buffer.lua" type="shared" />
+	<!--preprocessor core-->
+	<script src="prep.lua" type="shared" />
+	<!--handles automatic processing and configuration-->
+	<script src="daemon.lua" type="server" />
+	
+	<!--export preprocessor interface for local buffers-->
+	<script src="export.lua" type="shared" />
+	<export function="process" type="shared" />
 </meta>

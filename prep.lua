@@ -1,5 +1,5 @@
-
-function createProcessorSourceForBuffer ( buffer )
+--do not put MTA specific code here
+function createProcessorSourceFromBuffer ( buffer )
 	local code, i = { 'return coroutine.wrap ( function ()' }, 2
 	local format = string.format
 	for line in buffer:lines () do
@@ -21,9 +21,10 @@ function createProcessorSourceForBuffer ( buffer )
 	return loadstring ( code )
 end
 
-function getPreProcessed ( buffer )
+--TODO: figure a way out for passing parameters to the generator
+function getPreProcessed ( buffer, ... )
   local processed, i = {}, 1
-	for bite in assert ( createProcessorSourceForBuffer ( buffer ) ) () do
+	for bite in assert ( createProcessorSourceFromBuffer ( buffer ) ) ( ... ) do
 		processed [ i ], i = bite, i + 1
 	end
 	return table.concat ( processed )
