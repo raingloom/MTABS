@@ -3,7 +3,7 @@ function validateSetting ( key, value )
 end
 
 function processResource ( resourceName )
-	local metaxml = XML.load ( ':' .. resourceName .. '/meta.xml' or error "failed loading meta.xml" )
+	local metaxml = XML.load ( ':' .. resourceName .. '/meta.xml' ) or error "failed loading meta.xml"
 	local defaults = {
 		luac = '',
 		prep = '1',
