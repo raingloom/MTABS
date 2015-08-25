@@ -12,4 +12,10 @@
 	<!--export preprocessor interface for local buffers-->
 	<script src="export.lua" type="shared" />
 	<export function="process" type="shared" />
+	<export function="processResource" type="server" />
+	
+	<aclrequest>
+		<right name="general.ModifyOtherObjects" access="true" />
+		<right name="function.startResource" access="true" />
+	</aclrequest>
 </meta>
