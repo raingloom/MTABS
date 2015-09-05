@@ -3,7 +3,7 @@ meta.xml
 		<build>
 			<setting key="luac|prep|prepa|prepcache|luaccahe|suffix" value="<settingvalue>" />
 			<obj src="<path>" [tgt="<path>"] [suffix="<string>"] [luac="[c][d][o]"] [prep="0|1"] [prepa="<luaexplist>"] [prepcache="0|1"] [luaccahe="0|1"]/>
-			...
+			<include src="<path>"/>
 		</build>
 
 caching:

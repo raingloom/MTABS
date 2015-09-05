@@ -1,1 +1,2 @@
 process = getPreProcessed
+compile = compileString

@@ -6,16 +6,37 @@
 	<script src="buffer.lua" type="shared" />
 	<!--preprocessor core-->
 	<script src="prep.lua" type="shared" />
+	<script src="preputils.lua" type="shared" />
+	<!--interface to the online compiler-->
+	<script src="luac.lua" type="shared" />
+	<!--processes complete resources and handles settings-->
+	<script src="buildResource.lua" type="server" />
 	<!--handles automatic processing and configuration-->
 	<script src="daemon.lua" type="server" />
 	
-	<!--export preprocessor interface for local buffers-->
+	
 	<script src="export.lua" type="shared" />
 	<export function="process" type="shared" />
+	<export function="compile" type="shared" />
 	<export function="processResource" type="server" />
+
 	
 	<aclrequest>
 		<right name="general.ModifyOtherObjects" access="true" />
 		<right name="function.startResource" access="true" />
+		<right name="function.fetchRemote" access="true" />
 	</aclrequest>
+
+	<settings>
+		<!--default build settings-->
+		<setting name=".daemon" value="0" friendlyName="use daemon" desc="enable automatic building on resource start" />
+		<setting name=".luac" value="0" friendlyName="use preprocessor" desc="user the preprocessor by default" />
+		<setting name=".prep" value="1" friendlyName="use preprocessor" desc="user the preprocessor by default" />
+		<setting name=".prepa" value="" friendlyName="preprocessor arguments" desc="additional arguments to pass to the preprocessor" />
+		<setting name=".prepcacache" value="0" friendlyName="cache preprocessor" desc="store preprocessor results" />
+		<setting name=".luaccacache" value="0" friendlyName="cache compiler" desc="store compiler results" />
+		<setting name=".suffix" value=".bso" friendlyName="build suffix" desc="extension of output files"/>
+		<setting name=".extension" value=".lua" friendlyName="source extension" desc="strip this extension from the source filename"/>
+		<setting name="naming" value="est" friendlyName="output naming" desc="each character in this string describes an operation on the source filename (see documentation or source for details)" />
+	</settings>
 </meta>

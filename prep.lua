@@ -1,6 +1,6 @@
 --do not put MTA specific code here
-function createProcessorSourceFromBuffer ( buffer )
-	local code, i = { 'return coroutine.wrap ( function ()' }, 2
+function getPreprocessingGenerator ( buffer, env )
+	local code, i = { 'return coroutine.wrap ( function ( ... )' }, 2
 	local format = string.format
 	for line in buffer:lines () do
     local prepScript = line:match '^%s*#(.*)'
@@ -17,14 +17,17 @@ function createProcessorSourceFromBuffer ( buffer )
 	end
 	code [ i ] = 'end )'
   code = table.concat ( code )
-  --print ( code )
-	return loadstring ( code )
+	local f = loadstring ( code )
+	if env then
+		setfenv ( f, env )
+	end
+	return f
 end
 
 --TODO: figure a way out for passing parameters to the generator
 function getPreProcessed ( buffer, ... )
   local processed, i = {}, 1
-	for bite in assert ( createProcessorSourceFromBuffer ( buffer ) ) ( ... ) do
+	for bite in assert ( getPreprocessingGenerator ( buffer ) ) ( ... ) do
 		processed [ i ], i = bite, i + 1
 	end
 	return table.concat ( processed )

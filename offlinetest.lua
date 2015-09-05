@@ -3,17 +3,10 @@ dofile 'buffer.lua'
 dofile 'prep.lua'
 
 src = [[
-print 'loading Fibonacci numbers'
-fibonacci = {
-  #local a, b = 0, 1
-    $(a),
-  #for i = 2, 10 do
-  #a, b = b, a + b
-    $(a),
-  #end
-}]]
+#print ( arg )
+]]
 
-print ( getPreProcessed ( src ) )
+print ( getPreProcessed ( src, "asd" ) )
 --[[
 for line in src:lines () do
   print ( line )

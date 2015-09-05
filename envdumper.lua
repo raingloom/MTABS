@@ -1,6 +1,7 @@
 --circumvent __pairs metamethod
 local function fpairs ( x )
 	local mt = getmetatable ( x )
+	setmetatable ( x, nil )
 	local iter = pairs ( x )
 	return function ()
 		local k, v = iter ()
