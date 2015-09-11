@@ -1,11 +1,18 @@
 <meta>
 	<info name="MTA Build System" description="Handles auto-compilation and pre-processing" author="Rain Gloom" type="script" />
+
 	<oop>true</oop>
 	
+	<!--UTILS-->
 	<!--support for handling files and strings-->
 	<script src="buffer.lua" type="shared" />
+	<!--some table stuff-->
+	<script src="raincoat/table.lua" type="shared" />
+	
+	<!--MAIN-->
 	<!--preprocessor core-->
 	<script src="prep.lua" type="shared" />
+	<!--functions to be used in preprocessor scripts-->
 	<script src="preputils.lua" type="shared" />
 	<!--interface to the online compiler-->
 	<script src="luac.lua" type="shared" />
