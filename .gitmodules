@@ -1,0 +1,3 @@
+[submodule "raincoat"]
+	path = raincoat
+	url = https://github.com/raingloom/raincoat
