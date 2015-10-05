@@ -32,3 +32,7 @@ function getPreProcessed ( buffer, ... )
 	end
 	return table.concat ( processed )
 end
+
+function prepLoadstring ( str )
+	return loadstring ( getPreProcessed ( str ) )
+end
